@@ -46,14 +46,17 @@ contract CurtaPCTF2023 is ICurtaPCTF2023, ERC721, Owned {
     // ERC721Metadata
     // -------------------------------------------------------------------------
 
-    /// @inheritdoc ERC721
+    /// @notice Returns the URI for a given token ID.
+    /// @dev Reverts if the token ID does not exist.
+    /// @param _tokenId The token ID.
+    /// @return The URI for the given token ID.
     function tokenURI(
         uint256 _tokenId
     ) public view override returns (string memory) {
         // Revert if the token hasn't been minted.
         if (_ownerOf[_tokenId] == address(0)) revert TokenUnminted();
 
-        // Compute the metadata.
+        // Get name of the player the token is attributed to.
         string memory name = CurtaPCTF2023Metadata.getPlayerNameFromID(
             _tokenId
         );
@@ -67,11 +70,14 @@ contract CurtaPCTF2023 is ICurtaPCTF2023, ERC721, Owned {
                         name,
                         unicode' ∈ Curta ^ Paradigm CTF 2023","description":"',
                         COLLECTION_DESCRIPTION,
-                        '","animation_url":"data:text/html;charset=utf-8;base64,',
+                        '","animation_url":"data:text/html;charset=utf-8;base64'
+                        ",",
                         Base64.encode(
                             abi.encodePacked(CurtaPCTF2023Art.render(_tokenId))
                         ),
-                        '"}'
+                        '","attributes":[{"trait_type":"Player","value":"',
+                        name,
+                        '"},{"trait_type":"Year","value":2023}]}'
                     )
                 )
             );
@@ -88,9 +94,9 @@ contract CurtaPCTF2023 is ICurtaPCTF2023, ERC721, Owned {
                 "data:application/json;base64,",
                 Base64.encode(
                     abi.encodePacked(
-                        '{"name":"Curta ^ Paradigm CTF 2023 Player NFTs","description":"',
-                        COLLECTION_DESCRIPTION,
-                        '"}'
+                        '{"name":"Curta ^ Paradigm CTF 2023 Player NFTs","descr'
+                        'iption":"',
+                        COLLECTION_DESCRIPTION
                     )
                 )
             );
