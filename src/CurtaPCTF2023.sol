@@ -4,6 +4,7 @@ pragma solidity ^0.8.21;
 import {Owned} from "solmate/auth/Owned.sol";
 import {ERC721} from "solmate/tokens/ERC721.sol";
 import {ICurtaPCTF2023} from "./interfaces/ICurtaPCTF2023.sol";
+import {Base64} from "./utils/Base64.sol";
 import {CurtaPCTF2023Metadata} from "./utils/CurtaPCTF2023Metadata.sol";
 
 /// @title Curta ^ Paradigm CTF 2023 commemorative NFTs
@@ -25,7 +26,10 @@ contract CurtaPCTF2023 is ICurtaPCTF2023, ERC721, Owned {
     /// @param _owner Initial owner of the contract.
     constructor(
         address _owner
-    ) ERC721("Curta ^ Paradigm CTF 2023 Player NFTs", "PCTF{CUR74_2023}") Owned(_owner) {}
+    )
+        ERC721("Curta ^ Paradigm CTF 2023 Player NFTs", "PCTF{CUR74_2023}")
+        Owned(_owner)
+    {}
 
     /// @inheritdoc ICurtaPCTF2023
     function mint() external {
@@ -41,15 +45,17 @@ contract CurtaPCTF2023 is ICurtaPCTF2023, ERC721, Owned {
     // ERC721Metadata
     // -------------------------------------------------------------------------
 
-    /// @inheritdoc ICurtaPCTF2023
+    /// @inheritdoc ERC721
     function tokenURI(
         uint256 _tokenId
     ) public view override returns (string memory) {
         // Revert if the token hasn't been minted.
         if (_ownerOf[_tokenId] == address(0)) revert TokenUnminted();
 
-        // Generate the metadata.
-        string memory name = CurtaPCTF2023Metadata.generateName(seed);
+        // Compute the metadata.
+        string memory name = CurtaPCTF2023Metadata.getPlayerNameFromID(
+            _tokenId
+        );
 
         return
             string.concat(
@@ -62,9 +68,10 @@ contract CurtaPCTF2023 is ICurtaPCTF2023, ERC721, Owned {
                         COLLECTION_DESCRIPTION,
                         '","image_data":"data:image/svg+xml;base64,',
                         Base64.encode(
-                            abi.encodePacked(CurtaPCTF2023Art.render(seed))
+                            /* TODO: abi.encodePacked(CurtaPCTF2023Art.render(seed)) */
+                            abi.encodePacked("TODO")
                         ),
-                        '"}',
+                        '"}'
                     )
                 )
             );

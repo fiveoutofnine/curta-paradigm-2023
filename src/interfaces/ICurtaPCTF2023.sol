@@ -30,11 +30,4 @@ interface ICurtaPCTF2023 {
     /// @notice Returns the contract URI for this contract.
     /// @return The contract URI for this contract.
     function contractURI() external view returns (string memory);
-
-    /// @notice Returns a distinct URI for a given asset.
-    /// @param _id The token ID.
-    /// @return The URI for the token.
-    function tokenURI(
-        uint256 _id
-    ) public view virtual override returns (string memory);
 }
