@@ -10,14 +10,13 @@ interface ICurtaPCTF2023 {
     /// @notice Emitted when a token hasn't been minted.
     error TokenUnminted();
 
-    /// @notice Emitted when `msg.sender` is not authorized.
-    error Unauthorized();
-
     // -------------------------------------------------------------------------
     // Functions
     // -------------------------------------------------------------------------
 
     /// @notice Mints a token to the sender.
+    /// @dev The sender must have been a player on the Curta ^ Paradigm CTF 2023
+    /// team (it will revert otherwise).
     function mint() external;
 
     // TODO: get sound value at
