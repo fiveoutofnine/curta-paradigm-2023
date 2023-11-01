@@ -72,9 +72,7 @@ library CurtaPCTF2023Metadata {
         revert NonexistantPlayer(_player);
     }
 
-    function getPlayerName(
-        address _player
-    ) internal pure returns (string memory) {
+    function getPlayerName(address _player) internal pure returns (string memory) {
         if (_player == SUDOLABEL) return "sudolabel";
         else if (_player == KALZAK) return "Kalzak";
         else if (_player == SEEN) return "seen";
@@ -91,9 +89,7 @@ library CurtaPCTF2023Metadata {
         revert NonexistantPlayer(_player);
     }
 
-    function getPlayerNameFromID(
-        uint256 _id
-    ) internal pure returns (string memory) {
+    function getPlayerNameFromID(uint256 _id) internal pure returns (string memory) {
         if (_id == 0) return "sudolabel";
         else if (_id == 1) return "Kalzak";
         else if (_id == 2) return "seen";
