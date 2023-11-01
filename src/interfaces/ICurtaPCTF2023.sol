@@ -46,15 +46,25 @@ interface ICurtaPCTF2023 {
     // Onchain audio generation
     // -------------------------------------------------------------------------
 
-    // TODO: get sound value at
-
     /// @notice Returns the WAV file header for the audio file for 1 full cycle
-    /// of the token's sound with the following parameters:
+    /// of the token's sound with the parameters the token's sound was generated
+    /// with:
     ///     * Size: 196.61735kB (1572910 bytes) = 98.304s (1572864/8000/2)
     ///     * Number of channels: 1
     ///     * Sample rate: 8000Hz
     ///     * Bits/sample: 16 bits/sample
     function getAudioWavFileHeader() external pure returns (bytes memory);
+
+    /// @notice Returns the sound value at a given time tick in the audio.
+    /// @dev {CurtaPCTF2023}'s audio was generated at a sample rate of 8000Hz,
+    /// which means that `_tick` increments by 1 every 1/8000 seconds.
+    /// @param _tick The number of samples since the beginning of the audio at
+    /// a frequency of 8000Hz to get the sound value at.
+    /// @return The sound value at the given time tick, a value in the range
+    /// `[0, 255]` (higher means louder).
+    function getSoundValueAtSample(
+        uint256 _tick
+    ) external pure returns (bytes2);
 
     // -------------------------------------------------------------------------
     // Metadata
