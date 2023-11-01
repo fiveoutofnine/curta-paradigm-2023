@@ -4,6 +4,11 @@ pragma solidity ^0.8.21;
 /// @title Curta ^ Paradigm CTF 2023 commemorative NFT art
 /// @notice A library for generating HTML output for {CurtaPCTF2023}.
 library CurtaPCTF2023Art {
+    // -------------------------------------------------------------------------
+    // Constants
+    // -------------------------------------------------------------------------
+
+    /// @notice Starting string for the HTML.
     string constant HTML_START =
         unicode"<style>button{height:20px;margin:0 auto;border:0;background:#00"
         unicode"E100;cursor:pointer}button:hover{text-decoration:underline}.b{w"
@@ -23,6 +28,7 @@ library CurtaPCTF2023Art {
         unicode"=margin:auto>┌<span class=c>MEMBERS</span>───┐┌<span class=c>CH"
         unicode"ALLENGES COMPLETED</span>───────────┐\n│";
 
+    /// @notice Ending string for the HTML.
     string constant HTML_END =
         unicode"     ││100%                     200.65│\n│          ││BLACK WOR"
         unicode"LD              182.80│\n│          ││HELLO WORLD              "
@@ -49,28 +55,33 @@ library CurtaPCTF2023Art {
         unicode"h();d.arc(i/8,128-s.charCodeAt(32768*g+i*8)/2,1,0,2*Math.PI);d."
         unicode"fill();});g++;j=0;};h();setInterval(h,4096)})</script>";
 
+    // -------------------------------------------------------------------------
+    // `render` function
+    // -------------------------------------------------------------------------
+
     /// @notice Renders a HTML commemorating a player's participation and
     /// performance on the Curta team for the 2023 Paradigm CTF.
     /// @param _id ID of the player.
     /// @return HTML string.
     function render(uint256 _id) internal pure returns (string memory) {
         string memory html;
+        // Block-scoping to prevent stack too deep error.
         {
             html = string.concat(
                 HTML_START,
-                _helper("sudolabel", _id == 0),
+                _getHighlightedSpan("sudolabel", _id == 0),
                 unicode" ││SUSPICIOUS CHARITY       369.96│\n│",
-                _helper("Kalzak", _id == 1),
+                _getHighlightedSpan("Kalzak", _id == 1),
                 unicode"    ││FREE REAL ESTATE           1.74│\n│",
-                _helper("seen", _id == 2),
+                _getHighlightedSpan("seen", _id == 2),
                 unicode"      ││GRAINS OF SAND           343.99│\n│",
-                _helper("igorline", _id == 3),
+                _getHighlightedSpan("igorline", _id == 3),
                 unicode"  ││DROPPER                  233.22│\n│",
-                _helper("pogo", _id == 4),
+                _getHighlightedSpan("pogo", _id == 4),
                 unicode"      ││COSMIC RADIATION          43.78│\n│",
-                _helper("popular", _id == 5),
+                _getHighlightedSpan("popular", _id == 5),
                 unicode"   ││DRAGON TYRANT            425.13│\n│",
-                _helper("orenyomtov", _id == 6),
+                _getHighlightedSpan("orenyomtov", _id == 6),
                 unicode"││HOPPING INTO PLACE       316.55│\n│"
             );
         }
@@ -78,23 +89,29 @@ library CurtaPCTF2023Art {
         return
             string.concat(
                 html,
-                _helper("0x796", _id == 7),
+                _getHighlightedSpan("0x796", _id == 7),
                 unicode"     ││ENTERPRISE BLOCKCHAIN    271.22│\n│",
-                _helper("plotchy", _id == 8),
+                _getHighlightedSpan("plotchy", _id == 8),
                 unicode"   ││DAI++                    316.55│\n│",
-                _helper("forager", _id == 9),
+                _getHighlightedSpan("forager", _id == 9),
                 unicode"   ││DODONT <span class=c>[FIRST BLOOD]</span>     233."
                 unicode"10│\n│",
-                _helper("horsefacts", _id == 10),
+                _getHighlightedSpan("horsefacts", _id == 10),
                 unicode"││OVEN                     281.90│\n│",
-                _helper("datadanne", _id == 11),
+                _getHighlightedSpan("datadanne", _id == 11),
                 unicode" ││SKILL BASED GAME         214.03│\n│",
-                _helper("brock", _id == 12),
+                _getHighlightedSpan("brock", _id == 12),
                 HTML_END
             );
     }
 
-    function _helper(
+    /// @notice Helper function that returns a "highlighted" `<span/>` element
+    /// if the player is selected (i.e. the corresponding token is attributed to
+    /// them).
+    /// @param _name Name of the player.
+    /// @param _selected Whether the player is selected.
+    /// @return HTML string for the span.
+    function _getHighlightedSpan(
         string memory _name,
         bool _selected
     ) internal pure returns (string memory) {
