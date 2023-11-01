@@ -54,8 +54,9 @@ library CurtaPCTF2023Art {
     /// @param _id ID of the player.
     /// @return HTML string.
     function render(uint256 _id) internal pure returns (string memory) {
-        return
-            string.concat(
+        string memory html;
+        {
+            html = string.concat(
                 HTML_START,
                 _helper("sudolabel", _id == 0),
                 unicode" ││SUSPICIOUS CHARITY       369.96│\n│",
@@ -70,7 +71,13 @@ library CurtaPCTF2023Art {
                 _helper("popular", _id == 5),
                 unicode"   ││DRAGON TYRANT            425.13│\n│",
                 _helper("orenyomtov", _id == 6),
-                unicode"││HOPPING INTO PLACE       316.55│\n│",
+                unicode"││HOPPING INTO PLACE       316.55│\n│"
+            );
+        }
+
+        return
+            string.concat(
+                html,
                 _helper("0x796", _id == 7),
                 unicode"     ││ENTERPRISE BLOCKCHAIN    271.22│\n│",
                 _helper("plotchy", _id == 8),

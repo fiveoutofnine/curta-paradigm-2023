@@ -5,6 +5,7 @@ import {Owned} from "solmate/auth/Owned.sol";
 import {ERC721} from "solmate/tokens/ERC721.sol";
 import {ICurtaPCTF2023} from "./interfaces/ICurtaPCTF2023.sol";
 import {Base64} from "./utils/Base64.sol";
+import {CurtaPCTF2023Art} from "./utils/CurtaPCTF2023Art.sol";
 import {CurtaPCTF2023Metadata} from "./utils/CurtaPCTF2023Metadata.sol";
 
 /// @title Curta ^ Paradigm CTF 2023 commemorative NFTs
@@ -68,8 +69,7 @@ contract CurtaPCTF2023 is ICurtaPCTF2023, ERC721, Owned {
                         COLLECTION_DESCRIPTION,
                         '","image_data":"data:image/svg+xml;base64,',
                         Base64.encode(
-                            /* TODO: abi.encodePacked(CurtaPCTF2023Art.render(seed)) */
-                            abi.encodePacked("TODO")
+                            abi.encodePacked(CurtaPCTF2023Art.render(_tokenId))
                         ),
                         '"}'
                     )
