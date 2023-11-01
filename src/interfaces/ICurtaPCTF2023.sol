@@ -11,6 +11,24 @@ interface ICurtaPCTF2023 {
     error TokenUnminted();
 
     // -------------------------------------------------------------------------
+    // Events
+    // -------------------------------------------------------------------------
+
+    /// @notice Emitted when the base URI is set.
+    /// @param baseURI The new base URI.
+    event SetBaseURI(string baseURI);
+
+    // -------------------------------------------------------------------------
+    // Storage
+    // -------------------------------------------------------------------------
+
+    /// @dev If `baseURI` is unset, `tokenURI` will directly return the URI
+    /// generated onchain via {CurtaPCTF2023._tokenURI(uint256)}. Otherwise, it
+    /// will return `baseURI + tokenId`.
+    /// @return The base URI for the token collection.
+    function baseURI() external view returns (string memory);
+
+    // -------------------------------------------------------------------------
     // Functions
     // -------------------------------------------------------------------------
 
@@ -18,6 +36,11 @@ interface ICurtaPCTF2023 {
     /// @dev The sender must have been a player on the Curta ^ Paradigm CTF 2023
     /// team (it will revert otherwise).
     function mint() external;
+
+    /// @notice Sets the base URI for the token collection.
+    /// @dev This function can only be called by the contract owner.
+    /// @param _baseURI The new base URI for the token collection.
+    function setBaseURI(string calldata _baseURI) external;
 
     // TODO: get sound value at
     // TODO: get wav file header at
