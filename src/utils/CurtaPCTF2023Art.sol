@@ -11,22 +11,22 @@ library CurtaPCTF2023Art {
     /// @notice Starting string for the HTML.
     string constant HTML_START =
         unicode"<style>button{height:20px;margin:0 auto;border:0;background:#00"
-        unicode"E100;cursor:pointer}button:hover{text-decoration:underline}.b{w"
-        unicode"idth:512px}.c{color:#00e100}.a{position:absolute;margin:auto 0;"
-        unicode"border-radius:100%;top:6px;width:12px;height:12px}</style><body"
-        unicode' style=width:640px;height:640px;margin:0><div class=b style="he'
-        unicode'ight:512px;background:#161616;padding:64px"><div style="backgro'
-        unicode"und:#000;border-radius:8px;height:464px;overflow:hidden;border:"
-        unicode'1px solid #343434;margin:20px 0"><div style=position:relative;d'
-        unicode"isplay:flex;width:500px;height:24px;background:#dadada;padding-"
-        unicode"left:6px;padding-right:6px><code style=font-weight:600;margin:a"
-        unicode"uto;color:#484848>Curta ^ Paradigm CTF 2023</code><div style=ba"
-        unicode"ckground:#ed6a5e;left:6px class=a></div><div style=background:#"
-        unicode"f5bf4f;left:22px class=a></div><div style=background:#62c555;le"
-        unicode'ft:38px class=a></div></div><pre style="width:496px;height:292p'
-        unicode'x;display:flex;padding:0px 8px;color:#fff;margin:0"><code style'
-        unicode"=margin:auto>┌<span class=c>MEMBERS</span>───┐┌<span class=c>CH"
-        unicode"ALLENGES COMPLETED</span>───────────┐\n│";
+        unicode"E100;cursor:pointer;color:#000}button:hover{text-decoration:und"
+        unicode"erline}.b{width:512px}.c{color:#00e100}.a{position:absolute;mar"
+        unicode"gin:auto 0;border-radius:100%;top:6px;width:12px;height:12px}</"
+        unicode"style><body style=width:640px;height:640px;margin:0><div class="
+        unicode'b style="height:512px;background:#161616;padding:64px"><div sty'
+        unicode'le="background:#000;border-radius:8px;height:464px;overflow:hid'
+        unicode'den;border:1px solid #343434;margin:20px 0"><div style=position'
+        unicode":relative;display:flex;width:500px;height:24px;background:#dada"
+        unicode"da;padding-left:6px;padding-right:6px><code style=font-weight:6"
+        unicode"00;margin:auto;color:#484848>Curta ^ Paradigm CTF 2023</code><d"
+        unicode"iv style=background:#ed6a5e;left:6px class=a></div><div style=b"
+        unicode"ackground:#f5bf4f;left:22px class=a></div><div style=background"
+        unicode':#62c555;left:38px class=a></div></div><pre style="width:496px;'
+        unicode'height:292px;display:flex;padding:0px 8px;color:#fff;margin:0">'
+        unicode"<code style=margin:auto>┌<span class=c>MEMBERS</span>───┐┌<span"
+        unicode" class=c>CHALLENGES COMPLETED</span>───────────┐\n│";
 
     /// @notice Ending string for the HTML.
     string constant HTML_END =
