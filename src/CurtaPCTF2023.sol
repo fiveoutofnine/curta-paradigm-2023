@@ -64,7 +64,7 @@ contract CurtaPCTF2023 is ICurtaPCTF2023, ERC721, Owned {
                     abi.encodePacked(
                         '{"name":"',
                         name,
-                        '","description":"',
+                        unicode' ∈ Curta ^ Paradigm CTF 2023","description":"',
                         COLLECTION_DESCRIPTION,
                         '","image_data":"data:image/svg+xml;base64,',
                         Base64.encode(

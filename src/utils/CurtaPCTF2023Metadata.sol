@@ -14,7 +14,7 @@ library CurtaPCTF2023Metadata {
     address constant IGORLINE = address(0);
     address constant POGO = 0x6E82554d7C496baCcc8d0bCB104A50B772d22a1F; // minimooger.eth
     address constant POPULAR = 0x0Fc363b52E49074a395B075a6814Cb8F37E8F8BE; // p0pular.eth
-    address constant ORENYOMTOV = address(0);
+    address constant ORENYOMTOV = 0xD04Dd74d0a905E857278ac3A8bDaFadcD8BF8e87; // orenyomtov.eth
     address constant ZERO_X_796 = address(0);
     address constant PLOTCHY = 0x97735C60c5E3C2788b7EE570306775e687095D19; // plotchy.eth
     address constant FORAGER = 0x286cD2FF7Ad1337BaA783C345080e5Af9bBa0b6e; // forager.eth
