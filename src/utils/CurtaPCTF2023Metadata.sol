@@ -19,7 +19,7 @@ library CurtaPCTF2023Metadata {
     address constant PLOTCHY = 0x97735C60c5E3C2788b7EE570306775e687095D19; // plotchy.eth
     address constant FORAGER = 0x286cD2FF7Ad1337BaA783C345080e5Af9bBa0b6e; // forager.eth
     address constant HORSEFACTS = 0x79d31bFcA5Fda7A4F15b36763d2e44C99D811a6C; // horsefacts.eth
-    address constant DATADANNE = address(0);
+    address constant DATADANNE = 0xBDfeB5439f5daecb78A17Ff846645A8bDBbF5725; // datadanne.eth
     address constant BROCKE = 0x230d31EEC85F4063a405B0F95bdE509C0d0A8b5D; // brocke.eth
 
     // -------------------------------------------------------------------------
@@ -72,7 +72,9 @@ library CurtaPCTF2023Metadata {
         revert NonexistantPlayer(_player);
     }
 
-    function getPlayerName(address _player) internal pure returns (string memory) {
+    function getPlayerName(
+        address _player
+    ) internal pure returns (string memory) {
         if (_player == SUDOLABEL) return "sudolabel";
         else if (_player == KALZAK) return "Kalzak";
         else if (_player == SEEN) return "seen";
@@ -89,7 +91,9 @@ library CurtaPCTF2023Metadata {
         revert NonexistantPlayer(_player);
     }
 
-    function getPlayerNameFromID(uint256 _id) internal pure returns (string memory) {
+    function getPlayerNameFromID(
+        uint256 _id
+    ) internal pure returns (string memory) {
         if (_id == 0) return "sudolabel";
         else if (_id == 1) return "Kalzak";
         else if (_id == 2) return "seen";
