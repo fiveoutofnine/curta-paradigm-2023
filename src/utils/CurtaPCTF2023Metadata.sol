@@ -34,8 +34,8 @@ library CurtaPCTF2023Metadata {
     /// @notice The address of orenyomtov (orenyomtov.eth).
     address constant ORENYOMTOV = 0xD04Dd74d0a905E857278ac3A8bDaFadcD8BF8e87;
 
-    /// @notice The address of 0x796.
-    address constant ZERO_X_796 = address(0);
+    /// @notice The address of 0x796 (vicnaum.eth).
+    address constant ZERO_X_796 = 0x79635b386B9bd6636Cd701879C32E6dd181C853F;
 
     /// @notice The address of plotchy (plotchy.eth).
     address constant PLOTCHY = 0x97735C60c5E3C2788b7EE570306775e687095D19;
