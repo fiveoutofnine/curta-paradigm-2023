@@ -48,6 +48,12 @@ interface ICurtaPCTF2023 {
 
     // TODO: get sound value at
 
+    /// @notice Returns the WAV file header for the audio file for 1 full cycle
+    /// of the token's sound with the following parameters:
+    ///     * Size: 196.61735kB (1572910 bytes) = 98.304s (1572864/8000/2)
+    ///     * Number of channels: 1
+    ///     * Sample rate: 8000Hz
+    ///     * Bits/sample: 16 bits/sample
     function getAudioWavFileHeader() external pure returns (bytes memory);
 
     // -------------------------------------------------------------------------
