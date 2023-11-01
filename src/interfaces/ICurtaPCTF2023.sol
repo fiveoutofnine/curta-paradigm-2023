@@ -42,8 +42,13 @@ interface ICurtaPCTF2023 {
     /// @param _baseURI The new base URI for the token collection.
     function setBaseURI(string calldata _baseURI) external;
 
+    // -------------------------------------------------------------------------
+    // Onchain audio generation
+    // -------------------------------------------------------------------------
+
     // TODO: get sound value at
-    // TODO: get wav file header at
+
+    function getAudioWavFileHeader() external pure returns (bytes memory);
 
     // -------------------------------------------------------------------------
     // Metadata
