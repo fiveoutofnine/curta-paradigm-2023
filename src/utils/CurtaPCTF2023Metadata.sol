@@ -19,11 +19,11 @@ library CurtaPCTF2023Metadata {
     /// @notice The address of Kalzak (kalzak.eth).
     address constant KALZAK = 0xd4057e08B9d484d70C5977784fC1f6D82d45ff67;
 
-    /// @notice The address of seen.
-    address constant SEEN = address(0);
+    /// @notice The address of seen (eoa.sina.eth).
+    address constant SEEN = 0x2de14DB256Db2597fe3c8Eed46eF5b20bA390823;
 
-    /// @notice The address of igorline.
-    address constant IGORLINE = address(0);
+    /// @notice The address of igorline (igorline.eth).
+    address constant IGORLINE = 0x14869c6bF40BBc73e45821F7c28FD792151b3f9A;
 
     /// @notice The address of pogo (minimooger.eth).
     address constant POGO = 0x6E82554d7C496baCcc8d0bCB104A50B772d22a1F;
