@@ -62,9 +62,7 @@ interface ICurtaPCTF2023 {
     /// a frequency of 8000Hz to get the sound value at.
     /// @return The sound value at the given time tick, a value in the range
     /// `[0, 255]` (higher means louder).
-    function getSoundValueAtSample(
-        uint256 _tick
-    ) external pure returns (bytes2);
+    function getSoundValueAtSample(uint256 _tick) external pure returns (uint8);
 
     // -------------------------------------------------------------------------
     // Metadata

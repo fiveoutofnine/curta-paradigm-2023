@@ -74,7 +74,7 @@ contract CurtaPCTF2023 is ICurtaPCTF2023, ERC721, Owned {
     /// @inheritdoc ICurtaPCTF2023
     function getSoundValueAtSample(
         uint256 _tick
-    ) external pure returns (bytes2) {
+    ) external pure returns (uint8) {
         return CurtaPCTF2023Audio.getSoundValueAtSample(_tick);
     }
 
