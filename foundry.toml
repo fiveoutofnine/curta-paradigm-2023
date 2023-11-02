@@ -19,10 +19,10 @@ func_attrs_with_params_multiline = false
 quote_style = "double"
 number_underscore = "thousands"
 
-[rpc_endpoints]
-goerli = "${RPC_URL_GOERLI}"
-mainnet = "${RPC_URL_MAINNET}"
-
 [etherscan]
-goerli = { key = "${ETHERSCAN_KEY}", url = "https://api-goerli.etherscan.io/api" }
-mainnet = { key = "${ETHERSCAN_KEY}" }
+mainnet = { key = "${ETHERSCAN_API_KEY}" }
+sepolia = { key = "${ETHERSCAN_API_KEY}", url = "https://api-sepolia.etherscan.io/api" }
+
+[rpc_endpoints]
+mainnet = "${RPC_URL_MAINNET}"
+sepolia = "${RPC_URL_SEPOLIA}"
