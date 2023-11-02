@@ -2,9 +2,33 @@
 
 ## Curta ^ Paradigm CTF 2023 Player NFTs
 
-> An NFT collection to commemorate players of the Curta team for their participation and performance in the 2023 Paradigm CTF. In addition to displaying the team's results, the metadata of each token contains a 100% onchain-generated 1:38 minute long audio arrangement of "In the Hall of the Mountain King" by Edvard Grieg with 3 layered melody lines and a bass line at 117.1875 BPM.
+An NFT collection to commemorate players of the Curta team for their participation and performance in the 2023 Paradigm CTF.
+
+In addition to displaying the team's results, the metadata of each token contains a 100% onchain-generated 1:38 minute long audio arrangement of "In the Hall of the Mountain King" by Edvard Grieg with 3 layered melody lines and a bass line at 117.1875 BPM.
 
 https://github.com/fiveoutofnine/curta-paradigm-2023/assets/66016924/209b11ab-2df6-48a8-9c5c-fdb5deaef00b
+
+## Onchain audio generation
+
+### Bytebeat generation
+
+<details>
+    <summary>Definition [<a src='https://dollchan.net/bytebeat'><i>Source</i></a>]</summary>
+    <a src='http://canonical.org/~kragen/bytebeat'><b>Bytebeat</b></a> music (or one-liner music) was invented in September 2011. They're generally a piece of rhythmic and somewhat melodic music with no score, no instruments, and no real oscillators. It's simply a single-line formula that defines a waveform as a function of time, processed (usually) 8000 times per second, resulting in an audible waveform with a 256-step resolution from silence (0) to full amplitude (256). If you put that formula into a program with a loop that increments time variable (t), you can generate the headerless unsigned 8 bit mono 8kHz audio stream on output, like in this application. Since these directly output a waveform, they have great performance in compiled languages and can often be ran on even the weakest embedded devices.
+    <br/>
+</details>
+
+The following is a JavaScript bytebeat format implementation for the audio in this project (1:38 minute long audio arrangement of "In the Hall of the Mountain King" by Edvard Grieg with 3 layered melody lines and a bass line at 117.1875 BPM):
+
+```
+c='charCodeAt',u=(t>>18)%3,r=(t)=>t&256?t&255:256-(t&255),a=30*t*2**(("%'(*,(,,+'++*&**%'(*,(,1/,(,////"[c](t>>11&31)+[0,12,7,19][t>>16&3])/12-6),x=30*t*2**(("%,%,%,%,%,%,(/(/,3,3(0,3"[c](8*(t>>17&1?2:t>>15&1)+(t>>12&7)))/12-7),y=a*2,z=y*2,r(a)/(5-(u>1))+(u>0)/5*r(y)+(u>1)*(r(z)/5+r(x)/4)
+```
+
+[_Visualizer_](https://dollchan.net/bytebeat/#v3b64VYzRaoQwEEX/JbBxZhyJkzS6FZKl9DNcH8Qt9K0QFNYt/ffGtFCagcu5l3A+1fJxe1ODWkK1vM/pNbeXteItwBqjnPHkOGXGEFdtfXc50g+ZGiiIPAfX0kqWCOCqThUQA3Nd1TVpot8uJofJ76rGZSpu0U6wHlsWyz3L8zQea6fdhEZs0yHf/5v578CAYccOWnY/xjMVaa/lYoeDvM72slndIxZnj7yHmSw/wp4zwYwGfANbFMyft9ii8ZRgL0WQIMEjT3WCO5onVF/f)
+
+The audio file for this project has a sample rate of 8000Hz, and each loop is $3\cdot2^{18}$ samples long, so to generate the audio file, compute the value returned by the expression for $\texttt{t}\in[0, 3\cdot2^{18}-1]$ (you can query any range, but this is what's outputted by this project). Then, concatenate the results and prefix it with a [**WAVE file header**](http://soundfile.sapp.org/doc/WaveFormat/).
+
+For practicality, the metadata returned by `tokenURI` accomplishes [**this with JavaScript**](https://github.com/fiveoutofnine/curta-paradigm-2023/blob/14e6e805f421b602e954ecb4cb6e50d820a3a172/src/utils/CurtaPCTF2023Art.sol#L43), but the same result can be yielded directly from the smart contract via [`getSoundValueAt(uint256 _tick)`](https://github.com/fiveoutofnine/curta-paradigm-2023/blob/14e6e805f421b602e954ecb4cb6e50d820a3a172/src/utils/CurtaPCTF2023Audio.sol#L80) and [`getAudioFileWavHeader()`](https://github.com/fiveoutofnine/curta-paradigm-2023/blob/14e6e805f421b602e954ecb4cb6e50d820a3a172/src/utils/CurtaPCTF2023Audio.sol#L49).
 
 ## Deployment
 
