@@ -13,7 +13,11 @@ import {CurtaPCTF2023Metadata} from "./utils/CurtaPCTF2023Metadata.sol";
 /// @title Curta ^ Paradigm CTF 2023 commemorative NFTs
 /// @author fiveoutofnine
 /// @notice An NFT collection to commemorate players of the Curta team for their
-/// participation and performance in the 2023 Paradigm CTF.
+/// participation and performance in the 2023 Paradigm CTF. In addition to
+/// displaying the team's results, the metadata of each token contains a 100%
+/// onchain-generated 1:38 minute long audio arrangement of "In the Hall of the
+/// "Mountain King" by Edvard Grieg with 3 layered melody lines and a bass line
+/// at 117.1875 BPM.
 contract CurtaPCTF2023 is ICurtaPCTF2023, ERC721, Owned {
     using LibString for uint256;
 
@@ -22,7 +26,13 @@ contract CurtaPCTF2023 is ICurtaPCTF2023, ERC721, Owned {
     // -------------------------------------------------------------------------
 
     /// @notice Description of the collection.
-    string constant COLLECTION_DESCRIPTION = "TODO";
+    string constant COLLECTION_DESCRIPTION =
+        'An NFT collection to commemorate players of the Curta team for their p'
+        'articipation and performance in the 2023 Paradigm CTF. In addition to '
+        "displaying the team's results, the metadata of each token contains a 1"
+        '00% onchain-generated 1:38 minute long audio arrangement of "In the Ha'
+        'll of the "Mountain King" by Edvard Grieg with 3 layered melody lines '
+        "and a bass line at 117.1875 BPM."
 
     // -------------------------------------------------------------------------
     // Storage

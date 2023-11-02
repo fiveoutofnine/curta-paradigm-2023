@@ -6,7 +6,7 @@ import {FixedPointMathLib as Math} from "solady/utils/FixedPointMathLib.sol";
 /// @title Curta ^ Paradigm CTF 2023 commemorative NFT auditory art
 /// @notice A library for generating onchain audio for {CurtaPCTF2023}, which is
 /// a 1:38 minute long audio arrangement of "In the Hall of the Mountain King"
-/// by Edvard Grieg with layered melody lines and a bass line at 117.1875 BPM.
+/// by Edvard Grieg with 3 layered melody lines and a bass line at 117.1875 BPM.
 /// @dev The metadata returned by {CurtaPCTF2023} doesn't use this library for
 /// practical reasons. However, the same result can be yielded by calling
 /// {getSoundValueAtSample} for each sample in the range `[0, 786432]` and
