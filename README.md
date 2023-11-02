@@ -20,7 +20,7 @@ https://github.com/fiveoutofnine/curta-paradigm-2023/assets/66016924/209b11ab-2d
 
 The following is a JavaScript bytebeat format implementation for the audio in this project (1:38 minute long audio arrangement of "In the Hall of the Mountain King" by Edvard Grieg with 3 layered melody lines and a bass line at 117.1875 BPM):
 
-```
+```js
 c='charCodeAt',u=(t>>18)%3,r=(t)=>t&256?t&255:256-(t&255),a=30*t*2**(("%'(*,(,,+'++*&**%'(*,(,1/,(,////"[c](t>>11&31)+[0,12,7,19][t>>16&3])/12-6),x=30*t*2**(("%,%,%,%,%,%,(/(/,3,3(0,3"[c](8*(t>>17&1?2:t>>15&1)+(t>>12&7)))/12-7),y=a*2,z=y*2,r(a)/(5-(u>1))+(u>0)/5*r(y)+(u>1)*(r(z)/5+r(x)/4)
 ```
 
